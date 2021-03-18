@@ -24,34 +24,26 @@ public class IonSpawner : MonoBehaviour
         counter = 0;
     }
 
-
-    /* instantiates an Ion with the given "yDiff"
+    /* instantiates an ion with a randomish position. 
      */
-    private void CreateIon(Ion ion, bool doYDiff = true) 
+    private void CreateIon(bool doYDiff = true)
     {
         float yDiff = 0f;
         if (doYDiff)
         {
             yDiff = Random.RandomRange(-1f, 1f);
         }
-        Vector2 ionPos = new Vector2(xStart, 3 * yDiff);
-        
-        Ion i = Instantiate(ion, ionPos, Quaternion.Euler(0, 0, 0));
+        Vector2 iPos = new Vector2(xStart, 3 * yDiff);
 
-        // TODO: find a better way to assign these later.
-        i.formula = "Na^+";
-        i.gameObject.name = "Sodium Ion";
-
-        Rigidbody2D iRB = i.gameObject.GetComponent<Rigidbody2D>();
-        float yVel = (-yDiff * Random.value) / 2;
-        iRB.velocity = new Vector2(1, yVel); 
+        Ion i = Instantiate(prefabIon, iPos, Quaternion.Euler(0, 0, 0));
+        i.Setup("Na^+", startMovement: true); // TODO: Find a way to select which ion 
     }
 
     private void Update()
     {
-        if (counter > freq)
+        if (on && counter > freq)
         {
-            CreateIon(prefabIon);
+            CreateIon();
 
             counter = 0;
         }

@@ -4,15 +4,66 @@ using UnityEngine;
 
 public class Ion : MonoBehaviour
 {
-    public string formula; // hide later
+    private string m_vFormula; // the formula visible to the player.
+    private string m_tFormula; // the correct formula for this ion.
 
-    bool CompareFormulaTo(string s)
+    private bool moving = false;
+    private Vector3 dir; // the end position of the ion.
+    private Rigidbody2D rb;
+
+    /* Eventually, I'd like this constructor-y thing to take in just the true formula
+     * and randomly choose the visible formula from a list of possible names.
+     * For now, it will have parameters for both `vFormula` and `tFormula`.
+     */
+    public void Setup(string tFormula, bool startMovement = false)
     {
-        return formula == s;
+        m_tFormula = tFormula;
+        m_vFormula = m_tFormula;
+
+        gameObject.name = m_tFormula;
+
+        if (startMovement) StartMovement();
     }
 
-    void DebugPrintFormula()
+    public void StartMovement()
     {
-        Debug.Log(formula);
+        Debug.Log("movement starting...");
+        rb = gameObject.GetComponent<Rigidbody2D>();
+        Vector3 end = new Vector3(10, 3 * Random.RandomRange(-1f, 1f), 0);
+        dir = end - transform.position;
+        moving = true;
+    }
+
+    bool CheckFormula()
+    {
+        return m_vFormula == m_tFormula;
+    }
+
+    void DebugPrintFormulas()
+    {
+        if (CheckFormula())
+        {
+            Debug.Log("This is a " + m_tFormula + " ion, but it apears to the player as `" + m_vFormula + "`");
+        }
+    }
+
+    public void FixedUpdate()
+    {
+        if (moving)
+        {
+            Vector3 tempVect = dir.normalized * 4.5f * Time.deltaTime;
+            rb.MovePosition(transform.position + tempVect);
+
+            if (rb.position.x > 12)
+            {
+                DestroyIon();
+            }
+        } 
+    }
+
+    private void DestroyIon()
+    {
+        Debug.Log("Destroying a " + m_tFormula + " ion.");
+        Destroy(gameObject);
     }
 }
