@@ -9,7 +9,7 @@ public class Ion : MonoBehaviour
 
     private bool moving = false;
     private Vector3 dir; // the end position of the ion.
-    private Rigidbody2D rb;
+    private Rigidbody rb;
 
     /* Eventually, I'd like this constructor-y thing to take in just the true formula
      * and randomly choose the visible formula from a list of possible names.
@@ -28,7 +28,7 @@ public class Ion : MonoBehaviour
     public void StartMovement()
     {
         Debug.Log("movement starting...");
-        rb = gameObject.GetComponent<Rigidbody2D>();
+        rb = gameObject.GetComponent<Rigidbody>();
         Vector3 end = new Vector3(10, 3 * Random.RandomRange(-1f, 1f), 0);
         dir = end - transform.position;
         moving = true;
