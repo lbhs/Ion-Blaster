@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Score : MonoBehaviour
+public class Scoring : MonoBehaviour
 {
     public static int scoreAmount;
     private Text scoreText;
@@ -22,7 +22,7 @@ public class Score : MonoBehaviour
 
         // if (Input.GetMouseButtonDown(0));
         // {
-            // "correct":
+            // case "correct":
                 // Score.scoreAmount += 1;
             // Destroy(Collision.gameObject);
             // break;
