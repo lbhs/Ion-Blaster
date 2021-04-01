@@ -11,6 +11,9 @@ public class Ion : MonoBehaviour
     private Vector3 dir; // the end position of the ion.
     private Rigidbody rb;
 
+    public AudioSource SoundCorrect;
+    public AudioSource SoundIncorrect;
+
     /* Eventually, I'd like this constructor-y thing to take in just the true formula
      * and randomly choose the visible formula from a list of possible names.
      * For now, it will have parameters for both `vFormula` and `tFormula`.
@@ -36,7 +39,12 @@ public class Ion : MonoBehaviour
 
     bool CheckFormula()
     {
-        return m_vFormula == m_tFormula;
+        if (m_vFormula == m_tFormula)
+        {
+            SoundCorrect.Play(); return true;
+        } 
+        return false;
+
     }
 
     void DebugPrintFormulas()
@@ -44,6 +52,7 @@ public class Ion : MonoBehaviour
         if (CheckFormula())
         {
             Debug.Log("This is a " + m_tFormula + " ion, but it apears to the player as `" + m_vFormula + "`");
+            SoundIncorrect.Play();
         }
     }
 
