@@ -5,32 +5,36 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    public static int scoreAmount;
-    private Text scoreText;
+    int TotalPoints;
+    int pointsToGive;
+    public Text CurrentScore;
 
-    // Start is called before the first frame update
-    void Start()
+    // public AudioSource VictorySoundEffect_Short;
+
+    public void ObjectClicked(string objectTag)
     {
-        scoreText = GetComponent<Text>();
-        scoreAmount = 0;
+        switch (objectTag)
+        {
+            case "Magnesium Ion":
+                pointsToGive = 1;
+                break;  
+
+            case "Calcium Ion":
+                pointsToGive = 1;
+                break;
+
+            case "Strontium Ion":
+                pointsToGive = 2;
+                break;
+        }
+
+        TotalPoints += pointsToGive;
+        CurrentScore.text = "score: " + TotalPoints;
     }
 
-    // Update is called once per frame
-    // void Update()
-    // {
-        // scoreText.text = "Score: " + ScoreAmount;
-
-        // if (Input.GetMouseButtonDown(0));
-        // {
-            // "correct":
-                // Score.scoreAmount += 1;
-            // Destroy(Collision.gameObject);
-            // break;
-            // case "incorrect":
-                // Score.scoreAmount += 0;
-            // Destroy(Collision.gameObject);
-            // break;
-        // }
-
+    private void OnMouseDown()
+    {
+        ObjectClicked(gameObject.tag);
+    }
 
 }
