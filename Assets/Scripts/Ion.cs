@@ -7,6 +7,8 @@ public class Ion : MonoBehaviour
     private string m_vFormula; // the formula visible to the player.
     private string m_tFormula; // the correct formula for this ion.
 
+    private float m_xBound;
+
     private bool moving = false;
     private Vector3 dir; // the end position of the ion.
     private Rigidbody rb;
@@ -14,27 +16,41 @@ public class Ion : MonoBehaviour
     public AudioSource SoundCorrect;
     public AudioSource SoundIncorrect;
 
+    private float speed;
+    public GameObject text;
+    private Transform canvas;
+
     /* Eventually, I'd like this constructor-y thing to take in just the true formula
      * and randomly choose the visible formula from a list of possible names.
      * For now, it will have parameters for both `vFormula` and `tFormula`.
      */
-    public void Setup(string tFormula, bool startMovement = false)
+    public void Setup(string tFormula, string vFormula, bool startMovement = true, bool hasText = true, float xBound = 12)
     {
         m_tFormula = tFormula;
-        m_vFormula = m_tFormula;
+        m_vFormula = vFormula;
 
         gameObject.name = m_tFormula;
 
         if (startMovement) StartMovement();
+        if (hasText) SetupText();
+
+        m_xBound = xBound;
     }
 
     public void StartMovement()
     {
         Debug.Log("movement starting...");
         rb = gameObject.GetComponent<Rigidbody>();
+        Debug.Log(rb);
         Vector3 end = new Vector3(10, 3 * Random.RandomRange(-1f, 1f), 0);
         dir = end - transform.position;
         moving = true;
+    }
+
+    private void SetupText()
+    {
+        TextMesh t = gameObject.GetComponentInChildren<TextMesh>();
+        t.text = m_vFormula;
     }
 
     bool CheckFormula()
@@ -42,7 +58,7 @@ public class Ion : MonoBehaviour
         if (m_vFormula == m_tFormula)
         {
             SoundCorrect.Play(); return true;
-        } 
+        }
         return false;
 
     }
@@ -63,11 +79,11 @@ public class Ion : MonoBehaviour
             Vector3 tempVect = dir.normalized * 4.5f * Time.deltaTime;
             rb.MovePosition(transform.position + tempVect);
 
-            if (rb.position.x > 12)
+            if (rb.position.x > m_xBound)
             {
                 DestroyIon();
             }
-        } 
+        }
     }
 
     private void DestroyIon()

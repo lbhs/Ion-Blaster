@@ -5,7 +5,7 @@ using UnityEngine;
 public class IonSpawner : MonoBehaviour
 {
     // whether or not ions should be spawned (for testing purposes).
-    public bool on; 
+    public bool on;
 
     // a prefab of an Ion to be instantiated. Maybe we make this an array so that we can choose which one?
     public Ion prefabIon;
@@ -19,12 +19,15 @@ public class IonSpawner : MonoBehaviour
     // the starting x-coordinate of the Ion. ~ -10ish seems to work well for now
     public float xStart;
 
+    // This will eventually be imported from a document ??
+    private List<string> names = new List<string> { "Na^+", "Na^-", "Na^2+" };
+
     private void Start()
     {
         counter = 0;
     }
 
-    /* instantiates an ion with a randomish position. 
+    /* instantiates an ion with a randomish position.
      */
     private void CreateIon(bool doYDiff = true)
     {
@@ -36,10 +39,10 @@ public class IonSpawner : MonoBehaviour
         Vector2 iPos = new Vector2(xStart, 3 * yDiff);
 
         Ion i = Instantiate(prefabIon, iPos, Quaternion.Euler(0, 0, 0));
-        i.Setup("Na^+", startMovement: true); // TODO: Find a way to select which ion 
+        i.Setup(names[0], names[Random.Range(0, names.Count)], startMovement: true);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (on && counter > freq)
         {
