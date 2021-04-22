@@ -1,6 +1,7 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Ion : MonoBehaviour
 {
@@ -49,7 +50,7 @@ public class Ion : MonoBehaviour
 
     private void SetupText()
     {
-        TextMesh t = gameObject.GetComponentInChildren<TextMesh>();
+        TextMeshPro t = gameObject.GetComponentInChildren<TextMeshPro>();
         t.text = m_vFormula;
     }
 

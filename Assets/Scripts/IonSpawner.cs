@@ -20,10 +20,11 @@ public class IonSpawner : MonoBehaviour
     public float xStart;
 
     // This will eventually be imported from a document ??
-    private List<string> names = new List<string> { "Na^+", "Na^-", "Na^2+" };
+    private List<string> names;
 
     private void Start()
     {
+        names = GetNames("Na");
         counter = 0;
     }
 
@@ -52,5 +53,16 @@ public class IonSpawner : MonoBehaviour
         }
 
         counter++;
+    }
+
+    private List<string> GetNames(string s) {
+
+        switch (s) {
+            case "Na":
+                return new List<string> { "Na<sup>+</sup>", "Na<sup>-</sup>", "Na<sup>2+</sup>" };// <sub>subscript text</sub>
+            default:
+                return new List<string> {"L"};
+        }
+
     }
 }
