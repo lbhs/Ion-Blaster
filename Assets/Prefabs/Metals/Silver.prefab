@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 5350674737197932998}
   - component: {fileID: 1778973673985599459}
   m_Layer: 0
-  m_Name: Metal Ion
-  m_TagString: Untagged
+  m_Name: Silver
+  m_TagString: Silver
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

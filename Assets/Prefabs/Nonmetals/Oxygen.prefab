@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 8246472411546897156}
   m_Layer: 0
   m_Name: Oxygen
-  m_TagString: Untagged
+  m_TagString: Oxygen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

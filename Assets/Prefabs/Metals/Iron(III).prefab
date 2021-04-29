@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 8795498557056518836}
   m_Layer: 0
   m_Name: Iron(III)
-  m_TagString: Untagged
+  m_TagString: Iron(III)
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

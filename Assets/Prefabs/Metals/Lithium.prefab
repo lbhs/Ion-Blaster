@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 8135916258478046472}
   m_Layer: 0
   m_Name: Lithium
-  m_TagString: Untagged
+  m_TagString: Lithium
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

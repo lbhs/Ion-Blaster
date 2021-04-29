@@ -361,7 +361,7 @@ GameObject:
   - component: {fileID: 500313534441279855}
   m_Layer: 0
   m_Name: Calcium
-  m_TagString: Untagged
+  m_TagString: Calcium
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

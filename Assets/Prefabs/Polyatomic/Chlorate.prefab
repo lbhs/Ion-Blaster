@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 5563321852939449877}
   m_Layer: 0
   m_Name: Chlorate
-  m_TagString: Untagged
+  m_TagString: Chlorate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

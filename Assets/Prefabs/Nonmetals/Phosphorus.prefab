@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 2597991803702060675}
   m_Layer: 0
   m_Name: Phosphorus
-  m_TagString: Untagged
+  m_TagString: Phosphorus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
