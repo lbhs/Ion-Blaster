@@ -10,7 +10,7 @@ public class IonSpawner : MonoBehaviour
     // a prefab of an Ion to be instantiated. Maybe we make this an array so that we can choose which one?
     private GameObject currentPrefab;
 
-    public GameObject[] prefabs;
+    public List<GameObject> prefabs;
 
     // counter used in `Update` to stall time between instantiations. Maybe switch to a WaitForSeconds system later...
     private int frameCounter;
@@ -30,7 +30,8 @@ public class IonSpawner : MonoBehaviour
 
     // path to 'ions.txt', a db that contains all ion labels.
     readonly static string LABELS_PATH = @"Assets/Scripts/Resources/Ions.txt";
-    public TextAsset t;
+    public TextAsset labelsFile;
+    public TextAsset prefabsFile;
 
     // SEP is the character separator used in `Listify` to separate the string into a list.
     readonly static char SEP = ',';
@@ -41,25 +42,23 @@ public class IonSpawner : MonoBehaviour
      * TODO: add a function that gets the ion prefabs... probably `GetIonPrefabs`.
      */
     private void Start()
-    {
-        //Debug.Log("[IonSpawner.cs]: Loading Labels File");
-        //Resources.Load(LABELS_PATH);
-
-        Debug.Log("Prefabs: " + prefabs[0] + " " + prefabs[1]);
-
-        Debug.Log("[IonSpawner.cs]: Done.");
+    { 
         Debug.Log("[IonSpawner.cs]: Getting Ion Codes");
         GetIonCodes();
         Debug.Log("[IonSpawner.cs]: Done.");
+
         Debug.Log("[IonSpawner.cs]: Getting Possible Ion Names");
         GetNames();
         Debug.Log("[IonSpawner.cs]: Done.");
-        Debug.Log("Number of Ion names: " + allNames.Count + " (Should be 2).");
-        frameCounter = 0;
 
+        Debug.Log("[IonSpawner.cs]: Loading Possible Prefabs");
+        GetPrefabs();
+        Debug.Log("[IonSpawner.cs]: Done.");
+
+        frameCounter = 0;
         currentNames = allNames[0];
 
-        Debug.Log("[DEBUG]: Done Initializing.");
+        Debug.Log("[IonSpawner.cs]: Done Initializing.");
     }
 
 
@@ -108,10 +107,17 @@ public class IonSpawner : MonoBehaviour
     // depending on which ions the user selects in the title screen.
 
 
-     //This function populates `ionCodes` depending on what the user selected on the title screen.
+    /* This function will populate `ionCodes` depending on what the user selected on the title screen.
+     * Right now, the ions to be used are hard-coded. If you would like to change which ions are used,
+     * put the proper ion codes into the list below. 
+     * 
+     * An Ion's code is equal to the line number containing it's name in 
+     * Assets/Scripts/Resources/Ion\ paths.txt minus 1.
+     * (e.g.: Sodium is on line 12, so it's code is 11.)
+     */
     private void GetIonCodes()
     {
-        ionCodes = new List<int> { 22, 32 }; // Na = line 23, Cl = line 33
+        ionCodes = new List<int> { 9, 15 };
     }
 
 
@@ -124,14 +130,26 @@ public class IonSpawner : MonoBehaviour
      */
     private void GetNames() {
 
-        string[] allLabels = t.text.Split('\n'); //string[] allLabels = System.IO.File.ReadAllLines(LABELS_PATH); // { "Na<sup>+</sup>,Na<sup>-</sup>,Na<sup>2+</sup>" };
+        string[] allLabels = labelsFile.text.Split('\n'); //string[] allLabels = System.IO.File.ReadAllLines(LABELS_PATH); // { "Na<sup>+</sup>,Na<sup>-</sup>,Na<sup>2+</sup>" };
 
         allNames = new List<List<string>>();
         foreach (int i in ionCodes)
         {
             allNames.Add(Listify(allLabels[i])); // TODO: try/catch here ? 
         }
+    }
 
+    private void GetPrefabs()
+    {
+        string[] allPaths = prefabsFile.text.Split('\n');
+
+        prefabs = new List<GameObject>();
+        foreach (int i in ionCodes)
+        {
+            Debug.Log("[IonSpawner.cs]: " + allPaths[i]);
+            prefabs.Add(Resources.Load(allPaths[i], typeof(GameObject)) as GameObject); //"Metals/Sodium"
+            Debug.Log(prefabs[0]);
+        }
     }
 
     private List<string> Listify(string str)

@@ -156,7 +156,8 @@ MonoBehaviour:
   - {fileID: 6455439666403213320, guid: 50c164522bf312e40bb940dc648bf419, type: 3}
   freq: 50
   xStart: -10
-  t: {fileID: 4900000, guid: 1afc3a771aa757548a884f7eb36ca324, type: 3}
+  labelsFile: {fileID: 4900000, guid: 1afc3a771aa757548a884f7eb36ca324, type: 3}
+  prefabsFile: {fileID: 4900000, guid: b44f2dd14a8840b4ab141e7786eefbd3, type: 3}
 --- !u!4 &392269582
 Transform:
   m_ObjectHideFlags: 0
