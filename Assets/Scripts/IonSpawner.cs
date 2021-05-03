@@ -1,31 +1,90 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class IonSpawner : MonoBehaviour
 {
     // whether or not ions should be spawned (for testing purposes).
-    public bool on;
+    public bool on = true;
 
     // a prefab of an Ion to be instantiated. Maybe we make this an array so that we can choose which one?
-    public Ion prefabIon;
+    private GameObject currentPrefab;
+
+    public GameObject[] prefabs;
 
     // counter used in `Update` to stall time between instantiations. Maybe switch to a WaitForSeconds system later...
-    private int counter;
+    private int frameCounter;
 
-    // controls the frequency of instantiation. longer number = longer wait (pretty sure this should be "period", but `freq` sounds nicer)
+    // number of frames between each ion instantiation. longer number = longer wait (pretty sure this should be `period`, but `freq` sounds nicer)
     public int freq;
 
-    // the starting x-coordinate of the Ion. ~ -10ish seems to work well for now
+    // the starting x-coordinate of the Ion. ~ -10ish seems to work well for current cam setup ...
     public float xStart;
 
-    // This will eventually be imported from a document ??
-    private List<string> names;
+    // A list of all possible labels that an Ion can be named given user's options. Generated from 'Assets/ions.txt'
+    private List<List<string>> allNames;
 
+    private List<string> currentNames;
+
+    private int currentIterator = 0;
+
+    // path to 'ions.txt', a db that contains all ion labels.
+    readonly static string LABELS_PATH = @"Assets/Scripts/Resources/Ions.txt";
+    public TextAsset t;
+
+    // SEP is the character separator used in `Listify` to separate the string into a list.
+    readonly static char SEP = ',';
+
+    private List<int> ionCodes;
+
+    /* Called before frame 1 of `FixedUpdate`.
+     * TODO: add a function that gets the ion prefabs... probably `GetIonPrefabs`.
+     */
     private void Start()
     {
-        names = GetNames("Na");
-        counter = 0;
+        //Debug.Log("[IonSpawner.cs]: Loading Labels File");
+        //Resources.Load(LABELS_PATH);
+
+        Debug.Log("Prefabs: " + prefabs[0] + " " + prefabs[1]);
+
+        Debug.Log("[IonSpawner.cs]: Done.");
+        Debug.Log("[IonSpawner.cs]: Getting Ion Codes");
+        GetIonCodes();
+        Debug.Log("[IonSpawner.cs]: Done.");
+        Debug.Log("[IonSpawner.cs]: Getting Possible Ion Names");
+        GetNames();
+        Debug.Log("[IonSpawner.cs]: Done.");
+        Debug.Log("Number of Ion names: " + allNames.Count + " (Should be 2).");
+        frameCounter = 0;
+
+        currentNames = allNames[0];
+
+        Debug.Log("[DEBUG]: Done Initializing.");
+    }
+
+
+    /* This function contains the main loop that the spawner operates on.
+     * The time that ions are spawned at are seperated by `freq` # of frames.
+     */
+    private void FixedUpdate()
+    {
+        if (on && frameCounter > freq)
+        {
+            currentPrefab = prefabs[currentIterator];
+            currentNames = allNames[currentIterator];
+
+            CreateIon();
+            frameCounter = 0;
+
+            currentIterator++;
+
+            if (currentIterator >= allNames.Count)
+            {
+                currentIterator = 0;
+            }
+        }
+
+        frameCounter++;
     }
 
     /* instantiates an ion with a randomish position.
@@ -35,34 +94,56 @@ public class IonSpawner : MonoBehaviour
         float yDiff = 0f;
         if (doYDiff)
         {
-            yDiff = Random.RandomRange(-1f, 1f);
+            yDiff = Random.Range(-1f, 1f);
         }
         Vector2 iPos = new Vector2(xStart, 3 * yDiff);
 
-        Ion i = Instantiate(prefabIon, iPos, Quaternion.Euler(0, 0, 0));
-        i.Setup(names[0], names[Random.Range(0, names.Count)], startMovement: true);
+        GameObject i = Instantiate(currentPrefab, iPos, Quaternion.Euler(0, 0, 0));
+
+        i.GetComponent<Ion>().Setup(currentNames[0], currentNames[Random.Range(0, currentNames.Count)], startMovement: true); // SORRY
     }
 
-    private void FixedUpdate()
+
+    // The below seection of code relates to getting the labels to be used by the ion spawner
+    // depending on which ions the user selects in the title screen.
+
+
+     //This function populates `ionCodes` depending on what the user selected on the title screen.
+    private void GetIonCodes()
     {
-        if (on && counter > freq)
-        {
-            CreateIon();
-
-            counter = 0;
-        }
-
-        counter++;
+        ionCodes = new List<int> { 22, 32 }; // Na = line 23, Cl = line 33
     }
 
-    private List<string> GetNames(string s) {
 
-        switch (s) {
-            case "Na":
-                return new List<string> { "Na<sup>+</sup>", "Na<sup>-</sup>", "Na<sup>2+</sup>" };// <sub>subscript text</sub>
-            default:
-                return new List<string> {"L"};
+    /* This function takes in a string ID for the ion(s) (currently just one) that
+     * were selected on the title screen, and returns a list of possible ion labels.
+     *
+     * This function relies on the helper function `Listify`, which turns a string
+     * into a list.
+     *
+     */
+    private void GetNames() {
+
+        string[] allLabels = t.text.Split('\n'); //string[] allLabels = System.IO.File.ReadAllLines(LABELS_PATH); // { "Na<sup>+</sup>,Na<sup>-</sup>,Na<sup>2+</sup>" };
+
+        allNames = new List<List<string>>();
+        foreach (int i in ionCodes)
+        {
+            allNames.Add(Listify(allLabels[i])); // TODO: try/catch here ? 
         }
 
+    }
+
+    private List<string> Listify(string str)
+    {
+        List<string> l = new List<string> { };
+        string[] arr = str.Split(SEP);
+
+        foreach (string substr in arr)
+        {
+            l.Add(substr);
+        }
+
+        return l;
     }
 }

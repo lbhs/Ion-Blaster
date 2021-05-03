@@ -33,7 +33,6 @@ public class IonText : MonoBehaviour
         speed = Random.Range(10, 21);
 
         ionPos = transform.parent.position;
-        Debug.Log(transform.parent.name);
     }
 
     void FixedUpdate()

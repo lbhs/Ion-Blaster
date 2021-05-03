@@ -40,9 +40,9 @@ public class Ion : MonoBehaviour
 
     public void StartMovement()
     {
-        Debug.Log("movement starting...");
+        // Debug.Log("movement starting...");
         rb = gameObject.GetComponent<Rigidbody>();
-        Debug.Log(rb);
+        // Debug.Log(rb);
         Vector3 end = new Vector3(10, 3 * Random.RandomRange(-1f, 1f), 0);
         dir = end - transform.position;
         moving = true;

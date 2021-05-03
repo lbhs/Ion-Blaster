@@ -151,10 +151,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   on: 1
-  prefabIon: {fileID: 2155243090802684890, guid: 31cdcfee4d552436b8e1aa897edfd5b2,
-    type: 3}
+  prefabs:
+  - {fileID: 3738585310037969571, guid: 3336565adc9663a47a2884555931a014, type: 3}
+  - {fileID: 6455439666403213320, guid: 50c164522bf312e40bb940dc648bf419, type: 3}
   freq: 50
   xStart: -10
+  t: {fileID: 4900000, guid: 1afc3a771aa757548a884f7eb36ca324, type: 3}
 --- !u!4 &392269582
 Transform:
   m_ObjectHideFlags: 0
