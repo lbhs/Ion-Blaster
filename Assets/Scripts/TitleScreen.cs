@@ -10,4 +10,9 @@ public class TitleScreen : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+    public void SelectionStartGame ()
+    {
+        SceneManager.LoadScene(2);
+    }
 }
