@@ -2,7 +2,7 @@ Al<sup>3+</sup>,Al<sup>2+</sup>,Al<sup>+</sup>,Al<sup>3-</sup>,Al<sup>2-</sup>,A
 Ca<sup>2+</sup>,Ca<sup>+</sup>,Ca<sup>2-</sup>,Ca<sup>-</sup>
 Cu<sup>2+</sup>,Cu<sup>+</sup>,Cu<sup>2-</sup>,Cu<sup>-</sup>
 Fe<sup>2+</sup>,Fe<sup>+</sup>,Fe<sup>2-</sup>,Fe<sup>-</sup>
-Fe<sup>3+</sup>,Fe<sup>2+</sup>,Fe<sup>+</sup>,Fe<sup>3-</sup>,Fe<sup>2-</sup>,Fe<sup>-</sup>
+Fe<sup>3+</sup>,Fe<sup>+</sup>,Fe<sup>3-</sup>,Fe<sup>2-</sup>,Fe<sup>-</sup>
 Pb<sup>2+</sup>,Pb<sup>+</sup>,Pb<sup>2-</sup>,Pb<sup>-</sup>
 Li<sup>+</sup>,Li<sup>2+</sup>,Li<sup>-</sup>,Li<sup>2-</sup>
 Mg<sup>2+</sup>,Mg<sup>+</sup>,Mg<sup>2-</sup>,Mg<sup>-</sup>
@@ -12,16 +12,14 @@ Ag<sup>+</sup>,Ag<sup>2+</sup>,Ag<sup>-</sup>,Ag<sup>2-</sup>
 Na<sup>+</sup>,Na<sup>2+</sup>,Na<sup>-</sup>,Na<sup>2-</sup>
 Sr<sup>2+</sup>,Sr<sup>+</sup>,Sr<sup>2-</sup>,Sr<sup>-</sup>
 Zn<sup>2+</sup>,Zn<sup>+</sup>,Zn<sup>2-</sup>,Zn<sup>-</sup>
------------------------------------------------------------------
 Br<sup>-</sup>,Br<sup>2-</sup>,Br<sup>+</sup>,Br<sup>2+</sup>
 Cl<sup>-</sup>,Cl<sup>2-</sup>,Cl<sup>+</sup>,Cl<sup>2+</sup>
 F<sup>-</sup>,F<sup>2-</sup>,F<sup>+</sup>,F<sup>2+</sup>
 I<sup>-</sup>,I<sup>2-</sup>,I<sup>+</sup>,I<sup>2+</sup>
-N<sup>3-</sup>,N<sup>2-</sup>,N<sup>-</sup>,N<sup>3+</sup>,N<sup2+</sup>,N<sup>+</sup>
+N<sup>3-</sup>,N<sup>2-</sup>,N<sup>-</sup>,N<sup>3+</sup>,N<sup>2+</sup>,N<sup>+</sup>
 O<sup>2-</sup>,O<sup>-</sup>,O<sup>2+</sup>,O<sup>+</sup>
 P<sup>3-</sup>,P<sup>2-</sup>,P<sup>-</sup>,P<sup>3+</sup>,P<sup>2+</sup>,P<sup>+</sup>
 S<sup>2-</sup>,S<sup>-</sup>,S<sup>2+</sup>,S<sup>+</sup>
-----------------------------------------------------------------
 CO<sub>3</sub><sup>2-</sup>,CO<sub>3</sub><sup>-</sup>,CO<sub>3</sub><sup>2+</sup>,CO<sub>3</sub><sup>+</sup>
 ClO<sub>3</sub><sup>-</sup>,ClO<sub>3</sub><sup>2-</sup>,ClO<sub>3</sub><sup>-</sup>,ClO<sub>3</sub><sup>2-</sup>
 ClO<sub>2</sub><sup>-</sup>,ClO<sub>2</sub><sup>2-</sup>,ClO<sub>2</sub><sup>+</sup>,ClO<sub>2</sub><sup>2+</sup>

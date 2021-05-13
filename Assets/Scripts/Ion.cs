@@ -54,7 +54,7 @@ public class Ion : MonoBehaviour
         t.text = m_vFormula;
     }
 
-    bool CheckFormula()
+    public bool CheckFormula()
     {
         if (m_vFormula == m_tFormula)
         {
@@ -90,6 +90,11 @@ public class Ion : MonoBehaviour
     private void DestroyIon()
     {
         Debug.Log("Destroying a " + m_tFormula + " ion.");
+        if (CheckFormula() && GameFlowController.main)
+        {
+            GameFlowController.main.EditLife(-1);
+        } 
+
         Destroy(gameObject);
     }
 }

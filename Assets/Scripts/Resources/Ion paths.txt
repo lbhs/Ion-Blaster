@@ -12,7 +12,6 @@ Metals/Silver
 Metals/Sodium
 Metals/Strontium
 Metals/Zinc
------------------------------------------
 Nonmetals/Bromine
 Nonmetals/Chlorine
 Nonmetals/Flourine
@@ -21,7 +20,6 @@ Nonmetals/Nitrogen
 Nonmetals/Oxygen
 Nonmetals/Phosphorus
 Nonmetals/Sulfur
-----------------------------------------
 Polyatomic/Carbonate
 Polyatomic/Chlorate
 Polyatomic/Chlorite

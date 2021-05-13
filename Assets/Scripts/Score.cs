@@ -5,11 +5,16 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    int TotalPoints;
+    public static Score main;
+    int CurrentScore;
     int pointsToGive;
-    public Text CurrentScore;
+    public Text CurrentScoreText;
 
     // public AudioSource VictorySoundEffect_Short;
+    private void Start()
+    {
+        main = this;
+    }
 
     public void ObjectClicked(string objectTag)
     {
@@ -28,13 +33,18 @@ public class Score : MonoBehaviour
                 break;
         }
 
-        TotalPoints += pointsToGive;
-        CurrentScore.text = "score: " + TotalPoints;
+        CurrentScore += pointsToGive;
+        CurrentScoreText.text = "score: " + CurrentScore;
     }
 
     private void OnMouseDown()
     {
         ObjectClicked(gameObject.tag);
+    }
+
+    private void Update()
+    {
+        
     }
 
 }

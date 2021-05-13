@@ -15,18 +15,11 @@ public class ClickAction : MonoBehaviour
 
             if(didHit)
             {
-                //Debug.Log(rhInfo.collider.name); // 'name' can be substituted out for the name of the ion instead of the name of the gameObject
-
                 Destroyable destroyableScript = rhInfo.collider.GetComponent<Destroyable>();
                 if(destroyableScript)
                 {
                     destroyableScript.RemoveMe();
                 }
-            }
-
-            else
-            {
-                //Debug.Log("incorrect answer");
             }
         }
     }

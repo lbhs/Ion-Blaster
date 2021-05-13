@@ -26,6 +26,12 @@ public class DropdownHandler : MonoBehaviour
         }
 
         dropDown.AddOptions(ionItems);
+
+    }
+
+    public int GetSelection()
+    {
+        return dropDown.value;
     }
 
 }

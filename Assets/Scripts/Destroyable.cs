@@ -6,7 +6,20 @@ public class Destroyable : MonoBehaviour
 {
     public void RemoveMe()
     {
-        //Debug.Log("Destroyable's RemoveMe function called on " + name);
+        if (gameObject.GetComponent<Ion>().CheckFormula())
+        {
+            IonSpawner IS = IonSpawner.main;
+            //IS.LevelUp();
+            if (IS.freq > 16)
+            {
+                IS.freq -= 2;
+                //Debug.Log(IS.freq);
+            }
+        }
+        else
+        {
+            GameFlowController.main.EditLife(-1);
+        }
         Destroy(gameObject);
     }
 }
