@@ -10,7 +10,7 @@ public class Destroyable : MonoBehaviour
         {
             IonSpawner IS = IonSpawner.main;
             //IS.LevelUp();
-            if (IS.freq > 16)
+            if (IS.freq > 20)
             {
                 IS.freq -= 2;
                 //Debug.Log(IS.freq);
