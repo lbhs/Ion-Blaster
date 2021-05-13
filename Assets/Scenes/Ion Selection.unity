@@ -308,6 +308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dh1: {fileID: 838855303}
   dh2: {fileID: 893391143}
+  dh3: {fileID: 1280747625}
 --- !u!4 &128163327
 Transform:
   m_ObjectHideFlags: 0
