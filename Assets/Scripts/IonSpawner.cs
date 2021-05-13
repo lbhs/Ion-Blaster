@@ -139,6 +139,8 @@ public class IonSpawner : MonoBehaviour
         if (SpawnerHelper.main)
         {
             ionCodes = SpawnerHelper.main.GetIonCodes();
+
+            /*
             if (level < 1) return;
             else
             {
@@ -147,7 +149,8 @@ public class IonSpawner : MonoBehaviour
                     ionCodes[i] += level;
                 }
             }
-
+            */
+            return;
         }
         ionCodes = new List<int> { 9 + level, 15 + level};
     }

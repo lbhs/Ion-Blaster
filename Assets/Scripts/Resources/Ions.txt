@@ -1,3 +1,4 @@
+
 Al<sup>3+</sup>,Al<sup>2+</sup>,Al<sup>+</sup>,Al<sup>3-</sup>,Al<sup>2-</sup>,Al<sup>-</sup>
 Ca<sup>2+</sup>,Ca<sup>+</sup>,Ca<sup>2-</sup>,Ca<sup>-</sup>
 Cu<sup>2+</sup>,Cu<sup>+</sup>,Cu<sup>2-</sup>,Cu<sup>-</sup>
