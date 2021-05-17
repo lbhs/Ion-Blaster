@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class IonSpawner : MonoBehaviour
 {
+    public static IonSpawner main; // If we plan on having multiple ion spawners later, this needs to be reworked.
+
     // whether or not ions should be spawned (for testing purposes).
-    public bool on = true;
+    private bool on = false;
 
     // a prefab of an Ion to be instantiated. Maybe we make this an array so that we can choose which one?
     private GameObject currentPrefab;
@@ -36,18 +38,26 @@ public class IonSpawner : MonoBehaviour
     // SEP is the character separator used in `Listify` to separate the string into a list.
     readonly static char SEP = ',';
 
+    private int level = 0;
+
     private List<int> ionCodes;
 
     /* Called before frame 1 of `FixedUpdate`.
      * TODO: add a function that gets the ion prefabs... probably `GetIonPrefabs`.
      */
     private void Start()
-    { 
-        Debug.Log("[IonSpawner.cs]: Getting Ion Codes");
-        GetIonCodes();
-        Debug.Log("[IonSpawner.cs]: Done.");
+    {
+        main = this;
+        Setup();
+    }
 
-        Debug.Log("[IonSpawner.cs]: Getting Possible Ion Names");
+    private void Setup()
+    {
+        Debug.Log("[Setup]: Getting Ion Codes");
+        GetIonCodes();
+        Debug.Log("[Setup]: Done.");
+
+        Debug.Log("[Setup]: Getting Possible Ion Names");
         GetNames();
         Debug.Log("[IonSpawner.cs]: Done.");
 
@@ -57,10 +67,17 @@ public class IonSpawner : MonoBehaviour
 
         frameCounter = 0;
         currentNames = allNames[0];
+        on = true;
 
         Debug.Log("[IonSpawner.cs]: Done Initializing.");
     }
 
+    public void LevelUp()
+    {
+        on = false;
+        level++;
+        Setup();
+    }
 
     /* This function contains the main loop that the spawner operates on.
      * The time that ions are spawned at are seperated by `freq` # of frames.
@@ -102,6 +119,8 @@ public class IonSpawner : MonoBehaviour
         i.GetComponent<Ion>().Setup(currentNames[0], currentNames[Random.Range(0, currentNames.Count)], startMovement: true); // SORRY
     }
 
+    /*
+     */
 
     // The below seection of code relates to getting the labels to be used by the ion spawner
     // depending on which ions the user selects in the title screen.
@@ -109,15 +128,31 @@ public class IonSpawner : MonoBehaviour
 
     /* This function will populate `ionCodes` depending on what the user selected on the title screen.
      * Right now, the ions to be used are hard-coded. If you would like to change which ions are used,
-     * put the proper ion codes into the list below. 
-     * 
-     * An Ion's code is equal to the line number containing it's name in 
+     * put the proper ion codes into the list below.
+     *
+     * An Ion's code is equal to the line number containing it's name in
      * Assets/Scripts/Resources/Ion\ paths.txt minus 1.
      * (e.g.: Sodium is on line 12, so it's code is 11.)
      */
     private void GetIonCodes()
     {
-        ionCodes = new List<int> { 9, 15 };
+        if (SpawnerHelper.main)
+        {
+            ionCodes = SpawnerHelper.main.GetIonCodes();
+
+            /*
+            if (level < 1) return;
+            else
+            {
+                for (int i = 0; i < ionCodes.Count; i++)
+                {
+                    ionCodes[i] += level;
+                }
+            }
+            */
+            return;
+        }
+        ionCodes = new List<int> { 9 + level, 15 + level};
     }
 
 
@@ -135,7 +170,7 @@ public class IonSpawner : MonoBehaviour
         allNames = new List<List<string>>();
         foreach (int i in ionCodes)
         {
-            allNames.Add(Listify(allLabels[i])); // TODO: try/catch here ? 
+            allNames.Add(Listify(allLabels[i])); // TODO: try/catch here ?
         }
     }
 
