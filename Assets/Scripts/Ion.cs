@@ -25,7 +25,7 @@ public class Ion : MonoBehaviour
      * and randomly choose the visible formula from a list of possible names.
      * For now, it will have parameters for both `vFormula` and `tFormula`.
      */
-    public void Setup(string tFormula, string vFormula, bool startMovement = true, bool hasText = true, float xBound = 12)
+    public void Setup(string tFormula, string vFormula, bool startMovement = true, bool hasText = true, float xBound = 9.5f)
     {
         m_tFormula = tFormula;
         m_vFormula = vFormula;
@@ -60,8 +60,8 @@ public class Ion : MonoBehaviour
         {
             SoundCorrect.Play(); return true;
         }
-        return false;
 
+        return false;
     }
 
     void DebugPrintFormulas()

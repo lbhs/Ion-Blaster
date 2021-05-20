@@ -12,6 +12,10 @@ public class GameFlowController : MonoBehaviour
     public GameObject scorePack;
     public Timer t;
 
+    public AudioSource correct;
+    public AudioSource incorrect;
+
+
     void Start()
     {
         main = this;
@@ -21,6 +25,7 @@ public class GameFlowController : MonoBehaviour
     public void EditLife(int i)
     {
         playerLifeCounter += i;
+        PlaySound(false);
         if (playerLifeCounter < 1)
         {
             EndGame();
@@ -37,5 +42,17 @@ public class GameFlowController : MonoBehaviour
         Destroy(GameObject.Find("SpawnerHelper"));
         DontDestroyOnLoad(scorePack);
         SceneManager.LoadScene(3);
+    }
+
+    public void PlaySound(bool c)
+    {
+        if (c)
+        {
+            correct.Play();
+        }
+        else
+        {
+            incorrect.Play();
+        }
     }
 }
