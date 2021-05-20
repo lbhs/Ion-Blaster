@@ -6,8 +6,10 @@ public class Destroyable : MonoBehaviour
 {
     public void RemoveMe()
     {
-        if (gameObject.GetComponent<Ion>().CheckFormula())
+        Ion i = gameObject.GetComponent<Ion>();
+        if (i.CheckFormula()) // Correct Answer
         {
+            GameFlowController.main.PlaySound(true);
             IonSpawner IS = IonSpawner.main;
             //IS.LevelUp();
             if (IS.freq > 20)
@@ -19,6 +21,7 @@ public class Destroyable : MonoBehaviour
         else
         {
             GameFlowController.main.EditLife(-1);
+            GameFlowController.main.PlaySound(false);
         }
         Destroy(gameObject);
     }
