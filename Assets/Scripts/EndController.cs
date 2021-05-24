@@ -22,6 +22,6 @@ public class EndController : MonoBehaviour
     public void Restart()
     {
         Destroy(go);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }

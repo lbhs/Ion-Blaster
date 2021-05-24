@@ -18,20 +18,13 @@ public class Score : MonoBehaviour
 
     public void ObjectClicked(string objectTag)
     {
-        switch (objectTag)
-        {
-            case "Magnesium Ion":
-                pointsToGive = 1;
-                break;  
+        // switch (objectTag)
+        // {
+            // case "Ion":
+                // pointsToGive = 1;
+                // break;  
 
-            case "Calcium Ion":
-                pointsToGive = 1;
-                break;
-
-            case "Strontium Ion":
-                pointsToGive = 2;
-                break;
-        }
+        // }
 
         CurrentScore += pointsToGive;
         CurrentScoreText.text = "score: " + CurrentScore;

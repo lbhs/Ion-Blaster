@@ -25,6 +25,8 @@ public class ButtonAction : MonoBehaviour
         {
             Destroy(GameObject.Find("ScorePackage"));
         }
-        LoadTitle();
+
+        SceneManager.LoadScene(2);
+
     }
 }
