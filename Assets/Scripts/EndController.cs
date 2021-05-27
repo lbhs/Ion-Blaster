@@ -19,7 +19,13 @@ public class EndController : MonoBehaviour
         t.text = score;
     }
 
-    public void Restart()
+    public void RestartLevel()
+    {
+        Destroy(go);
+        SceneManager.LoadScene(2);
+    }
+
+    public void ChooseDifferentIons()
     {
         Destroy(go);
         SceneManager.LoadScene(1);
