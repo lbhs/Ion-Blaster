@@ -16,4 +16,13 @@ public class TitleScreen : MonoBehaviour
         SceneManager.LoadScene(3);
     }
 
+    public void Tutorial()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    public void Back()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
