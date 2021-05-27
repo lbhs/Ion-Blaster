@@ -44,6 +44,11 @@ public class GameFlowController : MonoBehaviour
         SceneManager.LoadScene(3);
     }
 
+    public void BeginGame()
+    {
+        IonSpawner.main.Activate();
+    }
+
     public void PlaySound(bool c)
     {
         if (c)

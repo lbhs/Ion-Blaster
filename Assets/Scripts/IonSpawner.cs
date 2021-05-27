@@ -42,16 +42,17 @@ public class IonSpawner : MonoBehaviour
 
     private List<int> ionCodes;
 
+    private List<GameObject> introIons;
+
     /* Called before frame 1 of `FixedUpdate`.
      * TODO: add a function that gets the ion prefabs... probably `GetIonPrefabs`.
      */
     private void Start()
     {
         main = this;
-        Setup();
     }
 
-    private void Setup()
+    public void Setup()
     {
         Debug.Log("[Setup]: Getting Ion Codes");
         GetIonCodes();
@@ -67,11 +68,77 @@ public class IonSpawner : MonoBehaviour
 
         frameCounter = 0;
         currentNames = allNames[0];
-        on = true;
+        currentPrefab = prefabs[currentIterator];
 
         Debug.Log("[IonSpawner.cs]: Done Initializing.");
+
+        SpawnIntroIons();
     }
 
+    public void Activate()
+    {
+        on = true;
+    }
+
+    // sorry this looks pretty nasty, I'm sure there's a more elegant way to do this
+    public void SpawnIntroIons()
+    {
+        introIons = new List<GameObject>();
+        switch (ionCodes.Count)
+        {
+            case 1:
+                GameObject i1 = Instantiate(currentPrefab, Vector3.down * 2, Quaternion.Euler(0, 0, 0));
+                i1.GetComponent<Ion>().Setup(currentNames[0], currentNames[0], startMovement: false);
+                introIons.Add(i1);
+                break;
+            case 2:
+                GameObject i2 = Instantiate(currentPrefab, Vector3.down * 2 + Vector3.left * 3, Quaternion.Euler(0, 0, 0));
+                i2.GetComponent<Ion>().Setup(currentNames[0], currentNames[0], startMovement: false);
+                introIons.Add(i2);
+                currentNames = allNames[1];
+                currentPrefab = prefabs[1];
+    
+                GameObject i3 = Instantiate(currentPrefab, Vector3.down * 2 + Vector3.right * 3, Quaternion.Euler(0, 0, 0));
+                i3.GetComponent<Ion>().Setup(currentNames[0], currentNames[0], startMovement: false);
+                introIons.Add(i3);
+                currentNames = allNames[0];
+                currentPrefab = prefabs[0];
+                break;
+            case 3:
+                GameObject i4 = Instantiate(currentPrefab, Vector3.down * 2 + Vector3.left * 5, Quaternion.Euler(0, 0, 0));
+                i4.GetComponent<Ion>().Setup(currentNames[0], currentNames[0], startMovement: false);
+                introIons.Add(i4);
+                currentNames = allNames[1];
+                currentPrefab = prefabs[1];
+
+                GameObject i5 = Instantiate(currentPrefab, Vector3.down * 2, Quaternion.Euler(0, 0, 0));
+                i5.GetComponent<Ion>().Setup(currentNames[0], currentNames[0], startMovement: false);
+                introIons.Add(i5);
+                currentNames = allNames[2];
+                currentPrefab = prefabs[2];
+
+                GameObject i6 = Instantiate(currentPrefab, Vector3.down * 2 + Vector3.right * 5, Quaternion.Euler(0, 0, 0));
+                i6.GetComponent<Ion>().Setup(currentNames[0], currentNames[0], startMovement: false);
+                introIons.Add(i6);
+                currentNames = allNames[0];
+                currentPrefab = prefabs[0];
+                break;
+            default:
+                return;
+        }
+    }
+
+    public void DestroyIntroIons()
+    {
+        while (introIons.Count != 0)
+        {
+            GameObject i = introIons[0];
+            introIons.Remove(i);
+            Destroy(i);
+        }
+    }
+
+    // outdated
     public void LevelUp()
     {
         on = false;
