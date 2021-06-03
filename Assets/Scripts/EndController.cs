@@ -8,26 +8,24 @@ public class EndController : MonoBehaviour
 {
     string score;
     public Text t;
-    GameObject go;
 
     // Start is called before the first frame update
     void Start()
     {
-        go = GameObject.Find("ScorePackage");
-        Debug.Log(go);
-        score = go.transform.position.x.ToString();
+        score = ScorePackage.main.currentScore.ToString();
         t.text = score;
     }
 
     public void RestartLevel()
     {
-        Destroy(go);
-        SceneManager.LoadScene(2);
+        Destroy(ScorePackage.main);
+        SceneManager.LoadScene(ScorePackage.main.lastLevel - 1);
     }
 
     public void ChooseDifferentIons()
     {
-        Destroy(go);
+        Destroy(ScorePackage.main);
+        Destroy(GameObject.Find("SpawnerHelper"));
         SceneManager.LoadScene(1);
     }
 }

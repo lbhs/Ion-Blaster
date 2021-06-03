@@ -8,7 +8,8 @@ public class SpawnerHelper : MonoBehaviour
     public DropdownHandler dh1;
     public DropdownHandler dh2;
     public DropdownHandler dh3;
-    private List<int> ionCodes; 
+    private List<int> ionCodes;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,7 @@ public class SpawnerHelper : MonoBehaviour
         if (!FindObjectOfType<IonSpawner>())
         {
             DontDestroyOnLoad(this);
+
         }
     }
 
@@ -44,5 +46,19 @@ public class SpawnerHelper : MonoBehaviour
             if (i3 > 0) ionCodes.Add(i3 + 22);
             //ionCodes = new List<int>() { dh1.GetSelection(), dh2.GetSelection() + 14};
         }
+    }
+
+    public void Randomize()
+    {
+        Debug.Log("Randomizing ...");
+
+        ionCodes = new List<int>();
+        int i1 = Random.Range(1, 14);
+        int i2 = Random.Range(15, 31);
+        ionCodes.Add(i1);
+        ionCodes.Add(i2);
+
+        Debug.Log(ionCodes);
+        //ionCodes = new List<int>() { dh1.GetSelection(), dh2.GetSelection() + 14}
     }
 }

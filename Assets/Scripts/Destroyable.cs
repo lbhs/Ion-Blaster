@@ -6,19 +6,16 @@ public class Destroyable : MonoBehaviour
 {
     public void RemoveMe()
     {
-        Ion i = gameObject.GetComponent<Ion>();
-        if (i.CheckFormula()) // Correct Answer
+        if (gameObject.GetComponent<Ion>().CheckFormula()) // Correct Answer
         {
-            GameFlowController.main.PlaySound(true);
-            IonSpawner IS = IonSpawner.main;
-            //IS.LevelUp();
-            if (IS.freq > 20)
+            GameFlowController.main.EditScore(1);
+            
+            if (GameFlowController.main.endless && IonSpawner.main.freq > 20)
             {
-                IS.freq -= 2;
-                //Debug.Log(IS.freq);
+                IonSpawner.main.freq -= 2;
             }
         }
-        else
+        else // Incorrect Answer
         {
             GameFlowController.main.EditLife(-1);
             GameFlowController.main.PlaySound(false);

@@ -295,7 +295,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1861954248}
-        m_MethodName: FadeSceneChange
+        m_MethodName: FadeToTutorial
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1174,7 +1174,6 @@ MonoBehaviour:
   img: {fileID: 1662208411}
   AS: {fileID: 0}
   timer: {fileID: 0}
-  bottomText: {fileID: 0}
 --- !u!4 &1861954249
 Transform:
   m_ObjectHideFlags: 0
