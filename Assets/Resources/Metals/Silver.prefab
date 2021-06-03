@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6760976876664800760}
   - component: {fileID: 1332210729924835213}
   - component: {fileID: 5350674737197932998}
-  - component: {fileID: 1778973673985599459}
+  - component: {fileID: 3847730047559053078}
   m_Layer: 0
   m_Name: Silver
   m_TagString: Silver
@@ -86,8 +86,8 @@ MonoBehaviour:
   SoundCorrect: {fileID: 927141568967145585}
   SoundIncorrect: {fileID: 927141569332672374}
   text: {fileID: 0}
---- !u!65 &1778973673985599459
-BoxCollider:
+--- !u!135 &3847730047559053078
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -97,7 +97,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.94
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &927141568967145599
 GameObject:

@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 9074274027780156836}
   - component: {fileID: 3621292238564089809}
   - component: {fileID: 7673279240276085146}
-  - component: {fileID: 4075110750349234111}
+  - component: {fileID: 497372180364968372}
   m_Layer: 0
   m_Name: Magnesium
   m_TagString: Magnesium
@@ -292,8 +292,8 @@ MonoBehaviour:
   SoundCorrect: {fileID: 3233658041800265773}
   SoundIncorrect: {fileID: 3233658041367633706}
   text: {fileID: 0}
---- !u!65 &4075110750349234111
-BoxCollider:
+--- !u!135 &497372180364968372
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -303,7 +303,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.94
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3233658041800265763
 GameObject:

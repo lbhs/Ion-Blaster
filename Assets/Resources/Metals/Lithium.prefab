@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 3858295425416699667}
   - component: {fileID: 8801244247495044454}
   - component: {fileID: 2457225735762393901}
-  - component: {fileID: 8135916258478046472}
+  - component: {fileID: 988896072233983766}
   m_Layer: 0
   m_Name: Lithium
   m_TagString: Lithium
@@ -292,8 +292,8 @@ MonoBehaviour:
   SoundCorrect: {fileID: 7243307463360815770}
   SoundIncorrect: {fileID: 7243307463801580957}
   text: {fileID: 0}
---- !u!65 &8135916258478046472
-BoxCollider:
+--- !u!135 &988896072233983766
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -303,7 +303,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.94
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7243307463801580959
 GameObject:

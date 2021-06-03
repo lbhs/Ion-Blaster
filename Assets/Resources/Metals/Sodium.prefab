@@ -564,7 +564,7 @@ GameObject:
   - component: {fileID: 7128091507556573934}
   - component: {fileID: 3261511345802907803}
   - component: {fileID: 8466392930193098448}
-  - component: {fileID: 2850759811643064565}
+  - component: {fileID: 7368336881370947889}
   m_Layer: 0
   m_Name: Sodium
   m_TagString: Sodium
@@ -638,8 +638,8 @@ MonoBehaviour:
   SoundCorrect: {fileID: 3738585309992443751}
   SoundIncorrect: {fileID: 3738585309895282784}
   text: {fileID: 0}
---- !u!65 &2850759811643064565
-BoxCollider:
+--- !u!135 &7368336881370947889
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -649,5 +649,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.94
   m_Center: {x: 0, y: 0, z: 0}

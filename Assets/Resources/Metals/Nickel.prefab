@@ -437,7 +437,7 @@ GameObject:
   - component: {fileID: 2809064251347970886}
   - component: {fileID: 7589949871533480243}
   - component: {fileID: 3560508901737795448}
-  - component: {fileID: 7176541573802002781}
+  - component: {fileID: 7577938773265538226}
   m_Layer: 0
   m_Name: Nickel
   m_TagString: Nickel
@@ -511,8 +511,8 @@ MonoBehaviour:
   SoundCorrect: {fileID: 8644030495806232271}
   SoundIncorrect: {fileID: 8644030495374842312}
   text: {fileID: 0}
---- !u!65 &7176541573802002781
-BoxCollider:
+--- !u!135 &7577938773265538226
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -522,7 +522,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.94
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8644030495806232257
 GameObject:

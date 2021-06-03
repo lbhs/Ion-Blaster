@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 1506534462771868976}
   - component: {fileID: 6577347968061982533}
   - component: {fileID: 250780916694913294}
-  - component: {fileID: 5875990906107336491}
+  - component: {fileID: 711008392214771604}
   m_Layer: 0
   m_Name: Potassium
   m_TagString: Potassium
@@ -213,8 +213,8 @@ MonoBehaviour:
   SoundCorrect: {fileID: 5036792265114257593}
   SoundIncorrect: {fileID: 5036792265285601214}
   text: {fileID: 0}
---- !u!65 &5875990906107336491
-BoxCollider:
+--- !u!135 &711008392214771604
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -224,7 +224,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.94
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5036792265285601212
 GameObject:

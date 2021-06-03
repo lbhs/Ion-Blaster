@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 8628075814611441429}
   - component: {fileID: 4040347896134215008}
   - component: {fileID: 6930951640348848939}
-  - component: {fileID: 3665625227211011342}
+  - component: {fileID: 184369883971892360}
   m_Layer: 0
   m_Name: Aluminum
   m_TagString: Aluminum
@@ -165,8 +165,8 @@ MonoBehaviour:
   SoundCorrect: {fileID: 2788603109075151516}
   SoundIncorrect: {fileID: 2788603109438645659}
   text: {fileID: 0}
---- !u!65 &3665625227211011342
-BoxCollider:
+--- !u!135 &184369883971892360
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -176,7 +176,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.5, z: 1.5}
+  m_Radius: 0.94
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2788603109075151506
 GameObject:

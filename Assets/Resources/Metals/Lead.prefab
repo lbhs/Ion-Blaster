@@ -437,7 +437,7 @@ GameObject:
   - component: {fileID: 7204429610314062870}
   - component: {fileID: 3194284357679132259}
   - component: {fileID: 8388513380586616872}
-  - component: {fileID: 2781176227711548941}
+  - component: {fileID: 790320526085670893}
   m_Layer: 0
   m_Name: Lead
   m_TagString: Lead
@@ -511,8 +511,8 @@ MonoBehaviour:
   SoundCorrect: {fileID: 3671920729863479711}
   SoundIncorrect: {fileID: 3671920729424490136}
   text: {fileID: 0}
---- !u!65 &2781176227711548941
-BoxCollider:
+--- !u!135 &790320526085670893
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -522,7 +522,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.94
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3671920729863479697
 GameObject:

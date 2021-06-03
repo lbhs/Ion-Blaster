@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 9058012941916538041}
   - component: {fileID: 3610656526882961100}
   - component: {fileID: 7648867200882253959}
-  - component: {fileID: 4095875715310888610}
+  - component: {fileID: 7886265530241719676}
   m_Layer: 0
   m_Name: Copper
   m_TagString: Copper
@@ -292,8 +292,8 @@ MonoBehaviour:
   SoundCorrect: {fileID: 3223038269569055024}
   SoundIncorrect: {fileID: 3223038269406950967}
   text: {fileID: 0}
---- !u!65 &4095875715310888610
-BoxCollider:
+--- !u!135 &7886265530241719676
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -303,7 +303,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.94
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3223038269569055038
 GameObject:

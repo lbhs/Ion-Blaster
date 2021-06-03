@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 4869102607553262452}
   - component: {fileID: 882038374481625345}
   - component: {fileID: 6052906003497310026}
-  - component: {fileID: 500313534441279855}
+  - component: {fileID: 7298281983339902232}
   m_Layer: 0
   m_Name: Calcium
   m_TagString: Calcium
@@ -432,18 +432,18 @@ MonoBehaviour:
   SoundCorrect: {fileID: 1341098502542282493}
   SoundIncorrect: {fileID: 1341098502705234426}
   text: {fileID: 0}
---- !u!65 &500313534441279855
-BoxCollider:
+--- !u!135 &7298281983339902232
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1341098502579428153}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.94
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1341098502705234424
 GameObject:

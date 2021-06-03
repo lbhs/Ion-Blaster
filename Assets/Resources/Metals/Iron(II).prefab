@@ -310,7 +310,7 @@ GameObject:
   - component: {fileID: 7629235360825895961}
   - component: {fileID: 2760525289380257388}
   - component: {fileID: 9111564714882287655}
-  - component: {fileID: 3207551016735264258}
+  - component: {fileID: 7717663815415855606}
   m_Layer: 0
   m_Name: Iron(II)
   m_TagString: Iron(II)
@@ -384,8 +384,8 @@ MonoBehaviour:
   SoundCorrect: {fileID: 4102343708086948240}
   SoundIncorrect: {fileID: 4102343708191383191}
   text: {fileID: 0}
---- !u!65 &3207551016735264258
-BoxCollider:
+--- !u!135 &7717663815415855606
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -395,7 +395,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.94
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4102343708086948254
 GameObject:

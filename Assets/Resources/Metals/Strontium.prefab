@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 4022396555871487338}
   - component: {fileID: 8682177464852018975}
   - component: {fileID: 2324093449547227476}
-  - component: {fileID: 8264549378277713777}
+  - component: {fileID: 5246458432977110675}
   m_Layer: 0
   m_Name: Strontium
   m_TagString: Strontium
@@ -292,8 +292,8 @@ MonoBehaviour:
   SoundCorrect: {fileID: 7411907554207152355}
   SoundIncorrect: {fileID: 7411907554379806692}
   text: {fileID: 0}
---- !u!65 &8264549378277713777
-BoxCollider:
+--- !u!135 &5246458432977110675
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -303,7 +303,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.94
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7411907554379806694
 GameObject:

@@ -485,7 +485,7 @@ GameObject:
   - component: {fileID: 1054998857290999864}
   - component: {fileID: 4686907880905611853}
   - component: {fileID: 1816816693267090438}
-  - component: {fileID: 5460584151056337443}
+  - component: {fileID: 4816346593301200229}
   m_Layer: 0
   m_Name: Zinc
   m_TagString: Zinc
@@ -559,8 +559,8 @@ MonoBehaviour:
   SoundCorrect: {fileID: 6893345421082580401}
   SoundIncorrect: {fileID: 6893345420985752246}
   text: {fileID: 0}
---- !u!65 &5460584151056337443
-BoxCollider:
+--- !u!135 &4816346593301200229
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -570,7 +570,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.94
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7356971159260268596
 GameObject:
