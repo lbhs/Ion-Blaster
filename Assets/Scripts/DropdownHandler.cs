@@ -1,4 +1,12 @@
-﻿using System.Collections;
+﻿/*
+ * DropdownHandler.cs
+ * Liela Andringa
+ * 
+ * This script operates the dropdowns in the Ion Selection scene. The function
+ * `GetSelection` can be called to return which ion was chosen by the player (as
+ * an integer ion code).
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;

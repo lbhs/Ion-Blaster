@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/*
+ * ButtonAction.cs
+ * Gavin Gee & Liela Andringa
+ * 
+ * This script handles the reset buttons in the playable scenes.
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;

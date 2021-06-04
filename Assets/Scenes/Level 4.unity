@@ -1383,11 +1383,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LifeText: {fileID: 1351551680}
   ScoreText: {fileID: 663867838}
-  scorePack: {fileID: 474637137}
-  t: {fileID: 0}
   correct: {fileID: 688269557}
   incorrect: {fileID: 760029793}
-  fader: {fileID: 0}
+  fader: {fileID: 1039582300}
+  endless: 0
 --- !u!4 &824404648
 Transform:
   m_ObjectHideFlags: 0

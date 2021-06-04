@@ -18,7 +18,7 @@ public class Fader : MonoBehaviour
     public Image img;
     // The build index for the current scene.
     private int sceneIndex;
-    // The audiosource for the music in the game scene.
+    // The audiosource for the bossa nova music in the game scene.
     public AudioSource AS;
 
     // This is the text object for the timer in the game scenes.
@@ -26,22 +26,24 @@ public class Fader : MonoBehaviour
 
     private void Start()
     {
-        //img = GameObject.Find("Black Screen").GetComponent<Image>();
-        img.enabled = true;
+        img.enabled = true; // this enables the image. it is initially disabled so it isn't seen in the unity editor.
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        // if there is no "black screen" image, the Fader object doesn't need to fade in/out
         if (!img)
         {
             return;
         }
-        if (sceneIndex == 1)
-        {
 
-        }
-
-        if (sceneIndex < 2 || sceneIndex % 2 == 0 || sceneIndex == 13)
+        // if a scene is the title or ion selection scene (< 2), a loading screen (even scenes < 12), or the tutorial (13), fade in normally with `DefaultFadeIn`
+        if (sceneIndex <= 2
+            || sceneIndex % 2 == 0
+            || sceneIndex == 13)
         {
             StartCoroutine(DefaultFadeIn());
-        } else if (sceneIndex < 12)
+        }
+        // otherwise, fade in with the count down by using `GameSceneFadeIn`
+        else if (sceneIndex < 12)
         {
             StartCoroutine(GameSceneFadeIn());
         }
@@ -52,7 +54,6 @@ public class Fader : MonoBehaviour
      */
     private IEnumerator DefaultFadeIn()
     {
-        Debug.Log("Fading in...");
         img.CrossFadeAlpha(0, .75f, false);
         yield return new WaitForSeconds(.75f);
     }
@@ -65,26 +66,30 @@ public class Fader : MonoBehaviour
         StartCoroutine(DefaultFadeOut());
     }
 
+    // This function fades to the end card (12)
     public void FadeToEnd()
     {
         StartCoroutine(DefaultFadeOut(12));
     }
 
+    // This function fades to the tutorial (13)
     public void FadeToTutorial()
     {
         StartCoroutine(DefaultFadeOut(13));
     }
 
+    // This function fades to the title screen (0)
     public void FadeToTitle()
     {
         StartCoroutine(DefaultFadeOut(0));
     }
 
-    /* This function fades the a scene out to black before loading the next scene.
+    /* This function fades the scene out to black before loading the next scene.
+     * The int `i` is an overload argument that can be used to fade to a specific
+     * scene at build index `i`. If `i` is 20 (default)
      */
     private IEnumerator DefaultFadeOut(int i = 20)
     {
-        Debug.Log("Fading out...");
         img.CrossFadeAlpha(1, .75f, false);
         yield return new WaitForSeconds(.75f);
         if (i == 20)
@@ -99,30 +104,25 @@ public class Fader : MonoBehaviour
 
     /* This function handles the fade in from black and timer before a playable
      * scene starts.
-     * 
-     * TODO: clean this up!
      */
     public IEnumerator GameSceneFadeIn()
     {
         yield return new WaitForSeconds(1f);
-        //IonSpawner.main.Setup();
 
+        // this for loop runs the countdown before the game starts
         for (int i = 3; i > 0; i--)
         {
             timer.text = i.ToString();
             yield return new WaitForSeconds(1f);
         }
-        //IonSpawner.main.DestroyIntroIons();
 
         timer.text = "Go!";
-        AS.Play();
-        //StartCoroutine(SpriteFade(s, 0, 0.5f));
-
+        AS.Play(); // Activates the music once the countdown finishes
         img.CrossFadeAlpha(0, .5f, false);
+
         yield return new WaitForSeconds(.5f);
 
         timer.text = "";
-
         GameFlowController.main.BeginGame();
     }
 }

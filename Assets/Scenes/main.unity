@@ -1320,7 +1320,7 @@ MonoBehaviour:
   ScoreText: {fileID: 663867838}
   correct: {fileID: 688269557}
   incorrect: {fileID: 760029793}
-  fader: {fileID: 0}
+  fader: {fileID: 1520798701}
   endless: 0
 --- !u!4 &824404648
 Transform:

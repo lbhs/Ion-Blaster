@@ -1,4 +1,11 @@
-﻿using System.Collections;
+﻿/*
+ * ClickAction.cs
+ * Liela Andringa
+ * 
+ * This script handles the registry of the player clicking ions in the playable scenes. 
+ * The actual destruction of the ion and awarding of points is handled by `Destroyable.cs`
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

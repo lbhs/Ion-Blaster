@@ -45,6 +45,6 @@ EditorBuildSettings:
     path: Assets/Scenes/End Card.unity
     guid: 1ef9c610bcee841abb3ca7d40138af9e
   - enabled: 1
-    path: Assets/Scenes/Title Screen 1.unity
+    path: Assets/Scenes/Tutorial.unity
     guid: b248d96e3e6512d408b2f9a7498febb6
   m_configObjects: {}

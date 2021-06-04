@@ -1,4 +1,14 @@
-﻿using System.Collections;
+﻿/* 
+ * PauseScript.cs
+ * Gavin Gee
+ * 
+ * This script spawns the ions seen in the loading screen between playable scenes.
+ * 
+ * It also contains functionality to change the text objects in the scene. This
+ * wasn't utilized in the final build of the game from the ACR 2021 team, but
+ * the functionality is left here in case it will become useful later.
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,8 +18,8 @@ using UnityEngine.UI;
 public class PauseScript : MonoBehaviour
 {
     private int sceneindex;
-    public Text t1;
-    public Text t2;
+    public Text t1; // The top text in the loading scene
+    public Text t2; // the bottom text in the loading scene.
 
     private void Start()
     {
@@ -18,6 +28,7 @@ public class PauseScript : MonoBehaviour
         //SetupText();
     }
 
+    // This function spawns the Ions in the loading scene with the help of `IonSpawner.cs`
     private void SpawnIons()
     {
         IonSpawner IS = GameObject.Find("Ion Spawner").GetComponent<IonSpawner>();

@@ -8,14 +8,11 @@ public class Ion : MonoBehaviour
     private string m_vFormula; // the formula visible to the player.
     private string m_tFormula; // the correct formula for this ion.
 
-    private float m_xBound;
+    private float m_xBound; // how far in the x direction the ion can reach before being destroyed.
 
     private bool moving = false;
     private Vector3 dir; // the end position of the ion.
     private Rigidbody rb;
-
-    public AudioSource SoundCorrect;
-    public AudioSource SoundIncorrect;
 
     private float speed;
     public GameObject text;
@@ -38,39 +35,37 @@ public class Ion : MonoBehaviour
         m_xBound = xBound;
     }
 
+    /* This function begins the movement of the ion and defines where it should
+     * move towards (`end`).
+     */
     public void StartMovement()
     {
-        // Debug.Log("movement starting...");
         rb = gameObject.GetComponent<Rigidbody>();
-        // Debug.Log(rb);
-        Vector3 end = new Vector3(10, 3 * Random.RandomRange(-1f, 1f), 0);
+        Vector3 end = new Vector3(10, 3 * Random.Range(-1f, 1f), 0);
         dir = end - transform.position;
         moving = true;
     }
 
+    /* This function sets up the TextMeshPro object associated with this script's
+     * gameobject.
+     */
     private void SetupText()
     {
         TextMeshPro t = gameObject.GetComponentInChildren<TextMeshPro>();
         t.text = m_vFormula;
     }
 
+    /* This script returns true if the ion has a correct formula and false if the
+     * formula is incorrect.
+     */
     public bool CheckFormula()
     {
         if (m_vFormula == m_tFormula)
         {
-            SoundCorrect.Play(); return true;
+            return true;
         }
 
         return false;
-    }
-
-    void DebugPrintFormulas()
-    {
-        if (CheckFormula())
-        {
-            Debug.Log("This is a " + m_tFormula + " ion, but it apears to the player as `" + m_vFormula + "`");
-            SoundIncorrect.Play();
-        }
     }
 
     public void FixedUpdate()
@@ -87,6 +82,9 @@ public class Ion : MonoBehaviour
         }
     }
 
+    /* This function destroys this script, the gameobject associated with it,
+     * and removes one life from the player.
+     */
     private void DestroyIon()
     {
         Debug.Log("Destroying a " + m_tFormula + " ion.");

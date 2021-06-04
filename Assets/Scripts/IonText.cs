@@ -6,6 +6,9 @@
  * by the boolean "active" at the top of the class. Active by default. Can be
  * turned off here or in the inspector (wouldn't recommend the inspector route
  * though, just added it in case it was convenient for debugging).
+ * 
+ * As of the final update to Ion-Blaster by the 2021 ACR Team, this script is
+ * not being used, but it will be left here in case it becomes useful later.
  */
 
 using System.Collections;
